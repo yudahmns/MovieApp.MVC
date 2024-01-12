@@ -1,0 +1,27 @@
+https://www.telerik.com/blogs/connecting-web-api-aspnet-core-mvc-application
+https://learn.microsoft.com/en-us/dotnet/core/extensions/httpclient-factory
+https://learn.microsoft.com/en-us/aspnet/core/mvc/controllers/routing?view=aspnetcore-8.0
+https://learn.microsoft.com/en-us/aspnet/core/tutorials/first-mvc-app/adding-model?view=aspnetcore-6.0&tabs=visual-studio-code
+dotnet new mvc --name MovieApp.MVC
+dotnet dev-certs https --trust
+dotnet add package Microsoft.EntityFrameworkCore.Design --version 7.0.15
+dotnet add package Microsoft.VisualStudio.Web.CodeGeneration.Design --version 6.0.16
+dotnet add package Microsoft.EntityFrameworkCore.SqlServer --version 7.0.15
+dotnet add package Microsoft.EntityFrameworkCore.Tools --version 7.0.15
+
+dotnet tool install --global dotnet-aspnet-codegenerator --version 6.0.16
+dotnet aspnet-codegenerator controller 
+--model Movie
+--controllerName MoviesController
+--dataContext MovieAppContext
+--relativeFolderPath Controllers
+--useDefaultLayout
+--referenceScriptLibraries
+
+dotnet aspnet-codegenerator controller --model Movie --controllerName MoviesController --dataContext MovieAppContext --relativeFolderPath Controllers --useDefaultLayout --referenceScriptLibraries
+
+dotnet tool install --global dotnet-ef --version 7.0.15
+dotnet ef migrations add InitialCreate
+Server=localhost,1433;Database=Database;User Id=sa;Password=Passw0rd;TrustServerCertificate=True;
+dotnet ef database update
+
